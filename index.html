@@ -34,11 +34,11 @@
         <!-- 步驟顯示表 -->
         <div class="stepper-panel" id="step-control">
           <div class="container stepper-container">
-            <div class="step checked">
+            <div class="step active ">
               <div class="circle-container"></div>
               <div class="label-container">啟用廣告服務</div>
             </div>
-            <div class="step active">
+            <div class="step ">
               <div class="circle-container"></div>
               <span class="connect-line"></span>
               <div class="label-container">廣告設定</div>
@@ -92,16 +92,19 @@
                     <input id="terms-check" type="checkbox" />
                     <label for="">我已詳細閱讀以上條款內容，並同意接受內容所有款項規定</label>
                   </div>
-                  <!-- part2 -->
-                  <div class="part">
-                    <div class="form-row">
-                      <label for="">廣告走期</label>
-                      <input type="date" id="a-time-start" name="a-time-start"> -
-                      <input type="date" id="a-time-start" name="a-time-end">
-                    </div>
-                    <div class="form-row">
-                      <label for="">廣告類別</label>
-                      <select name="a-type" id="a-type">
+                </div>
+                <!-- part2 -->
+                <div class="part d-none">
+                  <div class="form-row ">
+                    <label for="">廣告走期</label>
+                    <input class="w-25" type="date" id="a-time-start" name="a-time-start" required> -
+                    <input class="w-25" type="date" id="a-time-start" name="a-time-end" required>
+                  </div>
+                  <div class="form-row">
+                    <label for="">廣告類別</label>
+                    <div class="select-wrapper">
+                      <select name="a-type" id="a-type" required>
+                        <option value="">選擇廣告類別</option>
                         <option value="game">遊戲</option>
                         <option value="fashion">時尚</option>
                         <option value="travel">旅遊</option>
@@ -109,20 +112,24 @@
                         <option value="all">不拘</option>
                       </select>
                     </div>
-                    <div class="form-row">
-                      <label for="">受眾性別</label>
+                  </div>
+                  <div class="form-row">
+                    <label for="">受眾性別</label>
+                    <div class="d-flex align-items-center">
                       <input type="radio" name="ta-gender" value="male"><label for="">男</label>
                       <input type="radio" name="ta-gender" value="female"><label for="">女</label>
                       <input type="radio" name="ta-gender" value="all"><label for="">不拘</label>
                     </div>
-                    <div class="form-row">
-                      <label for="">受眾年齡</label>
-                      <input type="number"> -
-                      <input type="number">
-                    </div>
-                    <div class="form-row">
-                      <label for="">受眾地點</label>
-                      <select name="a-type" id="a-location">
+                  </div>
+                  <div class="form-row">
+                    <label for="">受眾年齡</label>
+                    <input type="number" min="13" max="65" value="13"> -
+                    <input type="number" min="13" max="65" value="65">
+                  </div>
+                  <div class="form-row">
+                    <label for="">受眾地點</label>
+                    <div class="select-wrapper">
+                      <select name="a-type" id="a-location" required>
                         <option value="" disable selected>請選擇受眾地點</option>
                         <option value="">北部</option>
                         <option value="">中部</option>
@@ -132,31 +139,31 @@
                       </select>
                     </div>
                   </div>
-                  <!-- part 3 -->
-                  <div class="part">
-                    <div class="form-row">
-                      <label for="">銀行代碼</label>
-                      <input type="text" id="back-code" placeholder="請輸入銀行代碼">
-                    </div>
-                    <div class="form-row">
-                      <label for="">銀行帳號</label>
-                      <input type="text" id="back-account" placeholder="請輸入銀行帳號">
-                    </div>
-                    <div class="form-row">
-                      <label for="">帳戶姓名</label>
-                      <input type="text" id="account-name" placeholder="請輸入帳戶姓名">
-                    </div>
-                    <div class="form-row">
-                      <label for="">備註</label>
-                      <textarea id="note" cols="30" rows="10"></textarea>
-                    </div>
+                </div>
+                <!-- part 3 -->
+                <div class="part d-none">
+                  <div class="form-row">
+                    <label for="">銀行代碼</label>
+                    <input type="text" id="back-code" placeholder="請輸入銀行代碼">
+                  </div>
+                  <div class="form-row">
+                    <label for="">銀行帳號</label>
+                    <input class="w-50" type="text" id="back-account" placeholder="請輸入銀行帳號">
+                  </div>
+                  <div class="form-row">
+                    <label for="">帳戶姓名</label>
+                    <input type="text" id="account-name" placeholder="請輸入帳戶姓名">
+                  </div>
+                  <div class="form-row">
+                    <label for="">備註</label>
+                    <textarea id="note" rows="3" class="scrollbar w-50"></textarea>
                   </div>
                 </div>
-                <!-- 最底下的步驟按鈕 -->
-                <div class="control-panel" id="btn-control">
-                  <button>上一步</button>
-                  <button>下一步</button>
-                </div>
+              </div>
+              <!-- 最底下的步驟按鈕 -->
+              <div id="btn-control" class="control-panel d-flex justify-content-end">
+                <button disabled class="btn btn-outline ">上一步</button>
+                <button class="btn btn-primary">下一步</button>
             </form>
           </div>
         </div>

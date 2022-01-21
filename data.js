@@ -70,7 +70,7 @@ const influencers = [
     ig: 'h_acting4',
   },
 ]
-const cardList =document.querySelector('#card-list')
+const cardList = document.querySelector('#card-list')
 const form = document.getElementById('a-form')
 const formParts = form.querySelectorAll('.part')
 const stepControl = document.getElementById('step-control')
@@ -82,50 +82,22 @@ const prevBtn = btnControl.querySelector('.btn-outline')
 let activeCard = 0
 let step = 0
 
-// ;(function () {
-//   influencers.forEach((influencer) => {
-//     cardList.innerHTML += `
-//         <div id="${influencer.name}-${influencer.id}" class="card ${
-//       influencer.id === activeCard + 1 ? 'active' : ''
-//     }">
-//         <div class="name">${influencer.name}</div>
-//         <div class="flex-row"><i class="fab fa-youtube"></i><span>${
-//           influencer.youtube
-//         }</span></div>
-//         <div class="flex-row"><i class="fab fa-facebook-square"></i><span>${
-//           influencer.fb
-//         }</span></div>
-//         <div class="flex-row"><i class="fab fa-instagram"></i><span>${
-//           influencer.ig
-//         }</span></div>
-//         </div>
-//      `
-//   })
-// })()
 
 influencers.forEach(influencer=>{
   cardList.innerHTML+= `
-    <div id="${influencer.name}-${influencer.id}" class="card ${
-      influencer.id === activeCard + 1 ? 'active' : ''
-    }">
+    <div id="${influencer.name}-${influencer.id}" class="card ${influencer.id === activeCard + 1 ? 'active' : '' }">
         <div class="name">${influencer.name}</div>
-        <div class="flex-row"><i class="fab fa-youtube"></i><span>${
-          influencer.youtube
-        }</span></div>
-        <div class="flex-row"><i class="fab fa-facebook-square"></i><span>${
-          influencer.fb
-        }</span></div>
-        <div class="flex-row"><i class="fab fa-instagram"></i><span>${
-          influencer.ig
-        }</span></div>
-        </div>
+        <div class="flex-row"><i class="fab fa-youtube"></i><span>${influencer.youtube}</span></div>
+        <div class="flex-row"><i class="fab fa-facebook-square"></i><span>${influencer.fb}</span></div>
+        <div class="flex-row"><i class="fab fa-instagram"></i><span>${influencer.ig}</span></div>
+    </div>
   `
 })
 
 
-function handleCardClicked({ target }) {
+function handleCardClicked(event) {
   const cards = cardList.querySelectorAll('.card')
-  const node = target.closest('.card')
+  const node = event.target.closest('.card')
   if (node) {
     const idArr = node.id.split('-')
     const num = Number(idArr[idArr.length - 1])
@@ -138,6 +110,7 @@ function handleCardClicked({ target }) {
 function handleBtnControlClicked(e) {
   e.preventDefault()
   const nowStep = steps[step]
+  console.log(step);
   if (e.target.matches('.btn-primary') && e.target.innerHTML === '下一步') {
     const nextStep = steps[step + 1]
     nowStep.classList.remove('active')
